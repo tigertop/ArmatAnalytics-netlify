@@ -70,7 +70,9 @@ export default {
    */
   plugins: [
     { src: '~/plugins/vue-content-placeholders.js'},
-    { src: "@/plugins/aos", mode: 'client' }],
+    { src: '@/plugins/bootstrap-vue', mode: 'client' },
+    { src: "@/plugins/aos", mode: 'client' }
+  ],
   purgeCSS: {
     whitelist: ["aos-init", "aos-animate", "data-aos-delay", "data-aos-duration", "fade-up", "zoom-in"]
   },
@@ -82,30 +84,23 @@ export default {
    ** Nuxt.js modules
    */
   modules: ['bootstrap-vue/nuxt', '@nuxt/content', 'nuxt-purgecss'],
+  bootstrapVue: {
+    bootstrapCSS: false, // here you can disable automatic bootstrapCSS in case you are loading it yourself using sass
+    bootstrapVueCSS: false, // CSS that is specific to bootstrapVue components can also be disabled. That way you won't load css for modules that you don't use
+    componentPlugins: [], // Here you can specify which components you want to load and use
+    directivePlugins: [] // Here you can specify which directives you want to load and use. Look into official docs to get a list of what's available
+  },
   /*
    ** Build configuration
    */
-  bootstrapVue: {
-    bootstrapCSS: true, // Or `css: false`
-    bootstrapVueCSS: true // Or `bvCSS: false`
-  },
   build: {
-    extractCSS: {
-      ignoreOrder: true
-    },
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          styles: {
-            name: 'styles',
-            test: /\.(css|vue)$/,
-            chunks: 'all',
-            enforce: true
-          }
-        }
+    extractCSS: true,
+    extend(config, ctx) {
+      if (ctx.isClient) {
+        // BootstrapVue and PortalVue require access to the global Vue reference (via import Vue from 'vue').
+        config.resolve.alias['vue$'] = 'vue/dist/vue.esm.js'
       }
-    },
-    extend(config, ctx) {}
+    }
   },
   /*
    ** Custom additions configuration
