@@ -7,11 +7,12 @@
 
 <script>
 export default {
+  name: 'Empty',
   layout: "empty"
 };
 </script>
 
-<style>
+<style scoped>
 *{
   box-sizing: border-box;
   margin: 0;
