@@ -1,9 +1,8 @@
-import postcssPresetEnv from 'postcss-preset-env'
-import postcssEasingGradients from 'postcss-easing-gradients'
 import * as SITE_INFO from './content/site/info.json'
 import { COLOR_MODE_FALLBACK } from './utils/globals.js'
 
 export default {
+  ssr: false,
   target: 'static',
   components: true,
   generate: {
@@ -32,6 +31,7 @@ export default {
       }
     ],
     link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'preconnect',
         href: 'https://fonts.gstatic.com',
@@ -64,35 +64,29 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/main.pcss'],
+  css: [],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/vue-content-placeholders.js'],
+  plugins: [
+    { src: '~/plugins/vue-content-placeholders.js'},
+    { src: "@/plugins/aos", mode: 'client' }],
+  purgeCSS: {
+    whitelist: ["aos-init", "aos-animate", "data-aos-delay", "data-aos-duration", "fade-up", "zoom-in"]
+  },
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/color-mode', '@nuxtjs/tailwindcss', '@nuxtjs/svg', '@nuxtjs/pwa'],
+  buildModules: ['@nuxtjs/color-mode', '@nuxtjs/svg'],
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxt/content', 'nuxt-purgecss'],
+  modules: ['bootstrap-vue/nuxt', '@nuxt/content', 'nuxt-purgecss'],
   /*
    ** Build configuration
    */
   build: {
     extractCSS: true,
-    postcss: {
-      plugins: {
-        'postcss-preset-env': postcssPresetEnv({
-          stage: 1,
-          features: {
-            'nesting-rules': false
-          }
-        }),
-        'postcss-easing-gradients': postcssEasingGradients
-      }
-    },
     /*
      ** You can extend webpack config here
      */
@@ -105,29 +99,6 @@ export default {
   content: {
     dir: 'content'
   },
-  tailwindcss: {
-    viewer: false, // disabled because it causes `Error: Cannot find module 'tailwindcss/resolveConfig'`, fixed in https://github.com/nuxt-community/tailwindcss-module/pull/303
-    cssPath: '~/assets/css/main.pcss',
-    exposeConfig: false // enables `import { theme } from '~tailwind.config'`
-  },
-  purgeCSS: {
-    mode: 'postcss',
-    // ? Safelisting docs: https://purgecss.com/safelisting.html
-    safelist: {
-      // standard: [],
-      deep: [/dark/, /light/, /btn/, /icon/, /main/],
-      greedy: [
-        /^card/,
-        /image$/,
-        /title$/,
-        /^nuxt-content/,
-        /code/,
-        /pre/,
-        /token/,
-        /^vue-content-placeholders/
-      ]
-    }
-  },
   colorMode: {
     classSuffix: '',
     preference: 'system', // default value of $colorMode.preference
@@ -137,19 +108,6 @@ export default {
       options: {
         sameSite: 'lax'
       }
-    }
-  },
-  pwa: {
-    icon: {
-      source: 'static/icon.png',
-      filename: 'icon.png'
-    },
-    manifest: { name: SITE_INFO.sitename || process.env.npm_package_name || '', lang: process.env.lang },
-    meta: {
-      name: SITE_INFO.sitename || process.env.npm_package_name || '',
-      lang: process.env.lang,
-      ogHost: process.env.URL,
-      ogImage: '/preview.jpg'
     }
   }
 }
