@@ -85,11 +85,26 @@ export default {
   /*
    ** Build configuration
    */
+  bootstrapVue: {
+    bootstrapCSS: true, // Or `css: false`
+    bootstrapVueCSS: true // Or `bvCSS: false`
+  },
   build: {
-    extractCSS: true,
-    /*
-     ** You can extend webpack config here
-     */
+    extractCSS: {
+      ignoreOrder: true
+    },
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.(css|vue)$/,
+            chunks: 'all',
+            enforce: true
+          }
+        }
+      }
+    },
     extend(config, ctx) {}
   },
   /*
