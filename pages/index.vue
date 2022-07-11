@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="empty">
         <h1>Coming Soon</h1>
         <p>Our website is under construction. Please check back again soon.</p>
     </div>
@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 *{
   box-sizing: border-box;
   margin: 0;
