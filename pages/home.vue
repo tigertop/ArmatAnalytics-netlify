@@ -72,52 +72,12 @@
        </b-col>
       </b-row>
       <b-row class="row-cols-2 row-cols-lg-3 g-5 justify-content-around align-self-stretch">
-        <b-col class="text-center  align-items-stretch mb-4">
+        <b-col v-for="report in reporting" :key="report.title" class="text-center  align-items-stretch mb-4">
           <div class="p-5 shadow-lg rounded-4 radius-1 h-100">
             <b-icon class="my-3">
-              <img class="align-item-center" src="images/crf.png" alt="">
+              <img class="align-item-center" :src="report.icon" alt="">
             </b-icon>
-            <h6>CRF CDISC Annotation</h6>
-          </div>
-        </b-col>
-        <b-col class="text-center align-items-stretch mb-4">
-          <div class="p-5 shadow-lg rounded-4 radius-1 h-100">
-            <b-icon class="my-3">
-              <img class="align-item-center" src="images/SDTM.png" alt="">
-            </b-icon>
-            <h6>SDTM/ADAM Datasets <br> Development</h6>
-          </div>
-        </b-col>
-        <b-col class="text-center  align-items-stretch mb-4">
-          <div class="p-5 shadow-lg rounded-4 radius-1 h-100">
-            <b-icon class="my-3">
-              <img class="align-item-center" src="images/Efficacy.png" alt="">
-            </b-icon>
-            <h6>Efficacy and Safety <br> Reporting</h6>
-          </div>
-        </b-col>
-        <b-col class="text-center  align-items-stretch mb-4">
-          <div class="p-5 shadow-lg rounded-4 radius-1 h-100">
-            <b-icon class="my-3">
-              <img class="align-item-center" src="images/Define.png" alt="">
-            </b-icon>
-            <h6>Define XML/PDF <br> </h6>
-          </div>
-        </b-col>
-        <b-col class="text-center  align-items-stretch mb-4">
-          <div class="p-5 shadow-lg rounded-4 radius-1 h-100">
-            <b-icon class="my-3">
-              <img class="align-item-center" src="images/Reporting.png" alt="">
-            </b-icon>
-            <h6>Reporting Package: CDISC <br> Compliant Documentation</h6>
-          </div>
-        </b-col>
-        <b-col class="text-center  align-items-stretch mb-4">
-          <div class="p-5 shadow-lg rounded-4 radius-1 h-100">
-            <b-icon class="my-3">
-              <img class="align-item-center" src="images/Conversion.png" alt="">
-            </b-icon>
-            <h6>Conversion of Legacy <br> Data to CDISC</h6>
+            <h6>{{ report.title }}</h6>
           </div>
         </b-col>
       </b-row>
@@ -133,8 +93,8 @@
       </b-col>
     </b-row>
     <b-row class="justify-content-around d-flex justify-content-between">
-      <b-col lg="4" md="6" class="mb-5 text-center align-items-stretch">
-        <div id="orange" class="mb-3  rounded-5 bg-light m-5 p-5 matchHeight">
+      <b-col lg="4" md="6" class="text-center align-items-stretch">
+        <b-jumbotron id="orange" class="rounded-hover bg-light m-5 p-5 h-75">
           <div class="icon-box align-items-center">
             <div class="icon my-3">
               <div class="icon-bg-circle icon-bg-orange">
@@ -143,30 +103,30 @@
             </div>
             <h5>Clinical Study Database Creation and Support</h5>
           </div>
-        </div>
+        </b-jumbotron>
       </b-col>
-      <b-col lg="4" md="6" class="mb-5 text-center align-items-stretch">
-        <div id="blue" class="mb-3  rounded-5 bg-light m-5 p-5 matchHeight">
+      <b-col lg="4" md="6" class="text-center align-items-stretch">
+        <b-jumbotron id="blue" class="rounded-hover bg-light m-5 p-5 h-75">
           <div class="icon my-3">
             <div class="icon-bg-circle icon-bg-blue">
               <img class="icon-img-center" src="images/Data Entry.png" alt="">
             </div>
           </div>
           <h5>Data Entry</h5>
-        </div>
+        </b-jumbotron>
       </b-col>
-      <b-col lg="4" md="6" class="mb-5 text-center  align-items-stretc h">
-        <div id="purple" class="mb-3  rounded-5 bg-light m-5 p-5 matchHeight">
+      <b-col lg="4" md="6" class="text-center  align-items-stretc h">
+        <b-jumbotron id="purple" class="rounded-hover bg-light m-5 p-5 h-75">
           <div class="icon my-3">
             <div class="icon-bg-circle icon-bg-purple">
               <img class="icon-img-center" src="images/Data Validation With Edit Checking.png" alt="">
             </div>
           </div>
           <h5>Data Validation With Edit Checking</h5>
-        </div>
+        </b-jumbotron>
       </b-col>
       <b-col lg="4" md="6" class="mb-5 text-center  align-items-stretch">
-        <div id="purple" class="mb-3  rounded-5 bg-light m-5 p-5 matchHeight">
+        <div id="purple" class="rounded-hover bg-light m-5 p-5 h-75">
           <div class="icon my-3">
             <div class="icon-bg-circle icon-bg-purple">
               <img class="icon-img-center" src="images/Discrepancy and Query Management.png" alt="">
@@ -176,7 +136,7 @@
         </div>
       </b-col>
       <b-col lg="4" md="6" class="mb-5 text-center  align-items-stretch">
-        <div id="orange" class="mb-3  rounded-5 bg-light m-5 p-5 matchHeight">
+        <div id="orange" class="rounded-hover bg-light m-5 p-5 h-75">
           <div class="icon my-3">
             <div class="icon-bg-circle icon-bg-orange">
               <img class="icon-img-center" src="images/Laboratory Data Reconciliation.png" alt="">
@@ -186,7 +146,7 @@
         </div>
       </b-col>
       <b-col lg="4" md="6" class="mb-5 text-center align-items-stretch">
-        <div id="blue" class="mb-3  rounded-5 bg-light m-5 p-5 matchHeight">
+        <div id="blue" class="rounded-hover bg-light m-5 p-5 h-75">
           <div class="icon my-3">
             <div class="icon-bg-circle icon-bg-blue">
               <img class="icon-img-center" src="images/MedDRA and WHODrug Coding.png" alt="">
@@ -240,8 +200,19 @@
 </template>
 
 <script>
+import _ from 'lodash';
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  async asyncData({ $content, error }) {
+    let reporting;
+    try {
+      let  reportingContents = await $content("reporting").fetch();
+      reporting = _.orderBy(reportingContents, 'sortkey');
+    } catch (e) {
+      error({ message: "Reporting not found" });
+    }
+    return { reporting };
+  },
 }
 </script>
 
@@ -357,4 +328,41 @@ h1.h1  {
   transform: translate(-50%, -50%);
 }
 /* end Data icon-box */
+/* border hover start */
+
+.rounded-hover {
+  border-radius: 0.75rem;
+  border: none;
+}
+
+#blue.rounded-hover:hover {
+  -webkit-box-shadow: 0px 0px 0px 3px var(--cornflowerblue-color);
+  -moz-box-shadow: 0px 0px 0px 3px var(--cornflowerblue-color);
+  box-shadow: 0px 0px 0px 3px var(--cornflowerblue-color);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+
+#orange.rounded-hover:hover {
+  -webkit-box-shadow: 0px 0px 0px 3px #F49235;
+  -moz-box-shadow: 0px 0px 0px 3px #F49235;
+  box-shadow: 0px 0px 0px 3px #F49235;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#purple.rounded-hover:hover {
+  -webkit-box-shadow: 0px 0px 0px 3px #AF98D9;
+  -moz-box-shadow: 0px 0px 0px 3px #AF98D9;
+  box-shadow: 0px 0px 0px 3px #AF98D9;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+/* border hover end */
+
+
+
+
 </style>
