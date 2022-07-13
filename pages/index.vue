@@ -65,7 +65,7 @@
         <b-row class="pt-5 d-flex">
           <div
             data-aos="fade-up"
-            data-aos-duration="1100"
+            data-aos-duration="1350"
             class="col-lg-12 ms-lg-5r text-center p-5"
             style="background-color: #f5f8fb; border-radius: 1rem"
           >
@@ -83,7 +83,7 @@
     </section>
     <!-- end Our Services  -->
 
-    <!-- Start Reporting -->
+       <!-- Start Reporting -->
     <b-container id="reporting" class="p-2">
       <b-row class="text-center my-5">
         <b-col cols="12">
@@ -92,8 +92,8 @@
         </b-col>
       </b-row>
       <b-row class="row-cols-2 row-cols-lg-3 g-5 justify-content-around align-self-stretch">
-        <b-col v-for="report in reporting" :key="report.title" class="text-center align-items-stretch mb-4">
-          <div class="p-5 shadow-lg rounded-4 radius-1 h-100">
+        <b-col v-for="(report, index) in reporting" :key="index" class="text-center align-items-stretch mb-4">
+          <div class="p-5 shadow-r rounded-4 radius-1 h-100">
             <b-icon class="my-3">
               <img class="align-item-center" :src="report.icon" alt="" />
             </b-icon>
@@ -113,67 +113,17 @@
         </b-col>
       </b-row>
       <b-row class="justify-content-around d-flex justify-content-between">
-        <b-col lg="4" md="6" class="text-center align-items-stretch">
-          <b-jumbotron id="orange" class="rounded-hover bg-light m-5 p-5 h-75">
+        <b-col v-for="(data, index) in dataManagement" :key="index" lg="4" md="6" class="text-center align-items-stretch">
+          <b-jumbotron class="dtmgmt rounded-hover bg-light m-5 p-5 h-75" :style="{'--hovercolor':data.color}">
             <div class="icon-box align-items-center">
               <div class="icon my-3">
-                <div class="icon-bg-circle icon-bg-orange">
-                  <img class="icon-img-center" src="images/Clinical Study Database Creation and Support.png" alt="" />
+                <div class="icon-bg-circle" :style="{backgroundColor:data.color}">
+                  <img class="icon-img-center" :src="data.icon" alt="" />
                 </div>
               </div>
-              <h5>Clinical Study Database Creation and Support</h5>
+              <h5>{{ data.title }}</h5>
             </div>
           </b-jumbotron>
-        </b-col>
-        <b-col lg="4" md="6" class="text-center align-items-stretch">
-          <b-jumbotron id="blue" class="rounded-hover bg-light m-5 p-5 h-75">
-            <div class="icon my-3">
-              <div class="icon-bg-circle icon-bg-blue">
-                <img class="icon-img-center" src="images/Data Entry.png" alt="" />
-              </div>
-            </div>
-            <h5>Data Entry</h5>
-          </b-jumbotron>
-        </b-col>
-        <b-col lg="4" md="6" class="text-center align-items-stretc h">
-          <b-jumbotron id="purple" class="rounded-hover bg-light m-5 p-5 h-75">
-            <div class="icon my-3">
-              <div class="icon-bg-circle icon-bg-purple">
-                <img class="icon-img-center" src="images/Data Validation With Edit Checking.png" alt="" />
-              </div>
-            </div>
-            <h5>Data Validation With Edit Checking</h5>
-          </b-jumbotron>
-        </b-col>
-        <b-col lg="4" md="6" class="mb-5 text-center align-items-stretch">
-          <div id="purple" class="rounded-hover bg-light m-5 p-5 h-75">
-            <div class="icon my-3">
-              <div class="icon-bg-circle icon-bg-purple">
-                <img class="icon-img-center" src="images/Discrepancy and Query Management.png" alt="" />
-              </div>
-            </div>
-            <h5>Discrepancy and Query Management</h5>
-          </div>
-        </b-col>
-        <b-col lg="4" md="6" class="mb-5 text-center align-items-stretch">
-          <div id="orange" class="rounded-hover bg-light m-5 p-5 h-75">
-            <div class="icon my-3">
-              <div class="icon-bg-circle icon-bg-orange">
-                <img class="icon-img-center" src="images/Laboratory Data Reconciliation.png" alt="" />
-              </div>
-            </div>
-            <h5>Laboratory Data Reconciliation</h5>
-          </div>
-        </b-col>
-        <b-col lg="4" md="6" class="mb-5 text-center align-items-stretch">
-          <div id="blue" class="rounded-hover bg-light m-5 p-5 h-75">
-            <div class="icon my-3">
-              <div class="icon-bg-circle icon-bg-blue">
-                <img class="icon-img-center" src="images/MedDRA and WHODrug Coding.png" alt="" />
-              </div>
-            </div>
-            <h5>MedDRA and WHODrug Coding</h5>
-          </div>
         </b-col>
       </b-row>
     </b-container>
@@ -231,14 +181,24 @@ export default {
   async asyncData({ $content, error }) {
     let reporting
     try {
-      let reportingContents = await $content('services/reporting').fetch()
+      let reportingContents = await $content('reporting').fetch()
       reporting = _.orderBy(reportingContents, 'sortkey')
-      console.log(reporting)
     } catch (e) {
       error({ message: 'Reporting not found' })
     }
-    return { reporting }
-  },
+    let dataManagement
+    try {
+      let dataManagementContents = await $content('dataManagement').fetch()
+      dataManagement = _.orderBy(dataManagementContents, 'sortkey')
+    } catch (e) {
+      error({ message: 'Data Management not found' })
+    }
+
+    return {
+      reporting,
+      dataManagement
+    }
+  }
 }
 </script>
 
@@ -309,6 +269,10 @@ h1.h1 {
   font-weight: 400;
 }
 
+#reporting .shadow-r {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 28px;
+}
+
 #data h1 {
   font-size: 42px;
   font-weight: 600;
@@ -335,18 +299,6 @@ h1.h1 {
   vertical-align: middle;
 }
 
-.icon-bg-orange {
-  background-color: #f6bc84;
-}
-
-.icon-bg-blue {
-  background-color: #8dbef8;
-}
-
-.icon-bg-purple {
-  background-color: #c5b5e3;
-}
-
 .icon-img-center {
   position: absolute;
   top: 50%;
@@ -361,29 +313,19 @@ h1.h1 {
   border: none;
 }
 
-#blue.rounded-hover:hover {
-  -webkit-box-shadow: 0px 0px 0px 3px var(--cornflowerblue-color);
-  -moz-box-shadow: 0px 0px 0px 3px var(--cornflowerblue-color);
-  box-shadow: 0px 0px 0px 3px var(--cornflowerblue-color);
-  transition: 0.4s;
-  cursor: pointer;
+.rounded-hover h5 {
+  font-family: 'Source Sans Pro';
+  font-size: 18px;
+  font-weight: 500;
+  color: #263E52;
 }
 
-#orange.rounded-hover:hover {
-  -webkit-box-shadow: 0px 0px 0px 3px #f49235;
-  -moz-box-shadow: 0px 0px 0px 3px #f49235;
-  box-shadow: 0px 0px 0px 3px #f49235;
-  transition: 0.4s;
+.dtmgmt.rounded-hover:hover {
+  -webkit-box-shadow: 0px 0px 0px 3px var(--hovercolor);
+  -moz-box-shadow: 0px 0px 0px 3px var(--hovercolor);
+  box-shadow: 0px 0px 0px 3px var(--hovercolor);
+  transition: 0.333s;
   cursor: pointer;
 }
-
-#purple.rounded-hover:hover {
-  -webkit-box-shadow: 0px 0px 0px 3px #af98d9;
-  -moz-box-shadow: 0px 0px 0px 3px #af98d9;
-  box-shadow: 0px 0px 0px 3px #af98d9;
-  transition: 0.4s;
-  cursor: pointer;
-}
-
 /* border hover end */
 </style>
