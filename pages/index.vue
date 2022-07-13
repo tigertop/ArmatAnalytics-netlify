@@ -19,20 +19,16 @@
 
     <!-- Start About us -->
     <b-container id="about" class="bv-example-row pt-5">
-      <b-row align-h="between pt-5">
+      <b-row v-for="(data, index) in aboutUs" :key="index" align-h="between pt-5">
         <b-col lg="6" md="6" sm="12">
-          <h1 class="about">About us</h1>
+          <h1 class="about">{{ data.title }}</h1>
           <p class="lead">
-            Armat Analytics is a Functional Service Provider specialized in statistical programming, data management and
-            clinical database design. Our flexible work model allows us to easily adapt to any environment. We smoothly
-            integrate into the processes, as we can work both with already established structures and implement our own
-            management and operational <br />
-            procedures.
+            {{ data.body.children[0].children[0].value }}
           </p>
         </b-col>
         <b-col lg="6" md="6" sm="12">
           <div class="text-lg-right">
-            <b-img src="/images/about.png" fluid alt="Responsive image" style="width: 85%"></b-img>
+            <b-img :src="data.image" fluid alt="Responsive image" style="width: 85%"></b-img>
           </div>
         </b-col>
       </b-row>
@@ -41,18 +37,16 @@
 
     <!-- Start Our mission-->
     <b-container id="our-mission" class="container bv-example-row pt-5">
-      <b-row align-h="between pt-5">
+      <b-row v-for="(data, index) in ourMission" :key="index" align-h="between pt-5">
         <b-col lg="7" order-lg="1" md="7" order-md="1" sm="12" order="2">
           <div class="text-left">
-            <b-img src="/images/mission.png" fluid alt="Responsive image" style="width: 75%"></b-img>
+            <b-img :src="data.image" fluid alt="Responsive image" style="width: 75%"></b-img>
           </div>
         </b-col>
         <b-col lg="5" order-lg="2" md="5" order-md="2" sm="12" order="1">
-          <h1 class="mission">Our mission</h1>
+          <h1 class="mission">{{ data.title }}</h1>
           <p class="lead">
-            In the challenging environment of the clinical research industry, our top priority is to provide the highest
-            quality in a timely manner. Yet, that’s not the limit. Our team of experts is dedicate to supporting our
-            customers to bring the change that actually matters.
+            {{ data.body.children[0].children[0].value }}
           </p>
         </b-col>
       </b-row>
@@ -62,20 +56,16 @@
     <!-- Start Our Services -->
     <section id="our-services" class="p-5">
       <b-container class="pt-5">
-        <b-row class="pt-5 d-flex">
+        <b-row v-for="(data, index) in ourServices" :key="index" class="pt-5 d-flex">
           <div
             data-aos="fade-up"
             data-aos-duration="1350"
             class="col-lg-12 ms-lg-5r text-center p-5"
             style="background-color: #f5f8fb; border-radius: 1rem"
           >
-            <h1 class="fw-bold">Our Services</h1>
+            <h1 class="fw-bold">{{ data.title }}</h1>
             <p class="b-5">
-              Our team of experts is here to fulfill your needs. Whether you are short on human resources and need
-              <br />
-              just one programmer to get through the peak season or an entire team for long term allocation, we are
-              <br />
-              happy to provide you with our expertise.
+              {{ data.body.children[0].children[0].value }}
             </p>
           </div>
         </b-row>
@@ -193,8 +183,14 @@ export default {
     } catch (e) {
       error({ message: 'Data Management not found' })
     }
-
+    let aboutUs = await $content('aboutus').fetch();
+    let ourMission = await $content('ourmission').fetch();
+    let ourServices = await $content('ourservices').fetch();
+   
     return {
+      aboutUs,
+      ourMission,
+      ourServices,
       reporting,
       dataManagement
     }
