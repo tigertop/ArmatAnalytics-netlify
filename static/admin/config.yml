@@ -1,5 +1,5 @@
-site_url: https://ntn-boilerplate.netlify.app/
-logo_url: https://ntn-boilerplate.netlify.app/icon.png
+site_url: https://armatanalytics.netlify.app/
+logo_url: https://armatanalytics.netlify.app/icon.png
 
 publish_mode: editorial_workflow
 backend:
@@ -10,8 +10,8 @@ backend:
 # used together with `npx netlify-cms-proxy-server`. https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
 local_backend: true
 
-media_folder: static/img
-public_folder: /img
+media_folder: static/images
+public_folder: /images
 
 # Docs: https://www.netlifycms.org/docs/configuration-options/#collections
 collections:
@@ -48,30 +48,10 @@ collections:
     # editor:
     #   preview: true
     fields:
-      - { label: 'Created Date', name: 'createdAt', widget: 'datetime', date_format: "YYYY-MM-DD", time_format: false }
+      - { label: 'Created Date', name: 'createdAt', widget: 'datetime', date_format: 'YYYY-MM-DD', time_format: false }
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
-  - name: 'projects'
-    label: 'Projects'
-    label_singular: 'Project'
-    folder: 'content/projects'
-    create: true
-    format: 'frontmatter'
-    slug: '{{slug}}'
-    preview_path: 'projects/{{slug}}'
-    fields:
-      - {
-          label: 'Project Category',
-          name: 'category',
-          widget: 'select',
-          default: 'animals',
-          options: [{ label: 'Animals', value: 'animals' }, { label: 'Food', value: 'food' }],
-        }
-      - { label: 'Title', name: 'title', widget: 'string', required: true }
-      - { label: 'Description', name: 'description', widget: 'string', required: false }
-      - { label: 'Cover Image', name: 'cover', widget: 'image', required: false, allow_multiple: false }
-      - { label: 'Content', name: 'body', widget: 'markdown', required: false }
       - {
           label: 'Gallery',
           name: 'gallery',
@@ -80,3 +60,15 @@ collections:
           summary: '{{fields.image}}',
           field: { label: 'Image', name: 'image', widget: 'image' },
         }
+  - name: 'reporting'
+    label: 'Reporting'
+    folder: 'content/reporting'
+    create: true
+    format: 'frontmatter'
+    slug: '{{slug}}'
+    preview_path: 'projects/{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      # - { label: 'Body', name: 'body', widget: 'markdown', required: false }
+      - { label: 'Icon', name: 'icon', widget: 'image', required: true, allow_multiple: false }
+      - { label: 'Sort Key', name: 'sortkey', widget: 'number', required: false }
