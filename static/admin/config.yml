@@ -64,7 +64,6 @@ collections:
       - { label: 'Icon', name: 'icon', widget: 'image', required: true, allow_multiple: false }
       - { label: 'Icon Background Color', name: 'color', widget: 'color', allowInput: true }
       - { label: 'Sort Key', name: 'sortkey', widget: 'number', required: false }
-
   - name: 'aboutus'
     label: 'About us'
     folder: 'content/aboutus'
@@ -78,7 +77,6 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Body', name: 'body', widget: 'markdown', required: true }
       - { label: 'Image', name: 'image', widget: 'image', required: true, allow_multiple: false }
-
   - name: 'ourmission'
     label: 'Our mission'
     folder: 'content/ourmission'
@@ -92,7 +90,6 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Body', name: 'body', widget: 'markdown', required: true }
       - { label: 'Image', name: 'image', widget: 'image', required: true, allow_multiple: false }
-
   - name: 'ourservices'
     label: 'Our Services'
     folder: 'content/ourservices'
@@ -105,3 +102,35 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Body', name: 'body', widget: 'markdown', required: true }
+  - name: 'joinarmat'
+    label: 'Join Armat'
+    folder: 'content/joinarmat'
+    create: true
+    editor:
+      preview: false
+    format: 'frontmatter'
+    slug: '{{slug}}'
+    preview_path: 'joinarmat/{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'string', required: true }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: true }
+      - { label: 'Background Image', name: 'image', widget: 'image', required: true, allow_multiple: false }
+  - name: 'contactus'
+    label: 'Contact Us'
+    folder: 'content/contactus'
+    create: true
+    editor:
+      preview: false
+    format: 'frontmatter'
+    slug: '{{slug}}'
+    preview_path: 'contactus/{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Location', name: 'location', widget: 'string', required: true }
+      - { label: 'Address', name: 'address', widget: 'string', required: true }
+      - { label: 'Email', name: 'email', widget: 'string', required: true, allow_multiple: false }
+      - { label: 'Working Days', name: 'date', widget: 'string', required: true }
+      - { label: 'Number', name: 'number', widget: 'string', required: true }
+      - { label: 'LinkedIn', name: 'linkedin', widget: 'string', required: true }
+

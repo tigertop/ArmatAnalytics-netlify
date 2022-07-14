@@ -1,7 +1,8 @@
 <template>
-  <b-row class="justify-content-center bg" id="contact">
+<div>
+  <b-row v-for="(contact, index) in this.contactUs" :key="index" class="justify-content-center bg" id="contact">
     <b-col cols="12" class="text-center">
-      <h1 class="contact">Contact Us</h1>
+      <h1 class="contact">{{ contact.title }}</h1>
     </b-col>
     <b-col md="5" lg="5" sm="12">
      <div class="card shadow-0 border-0 pt-4">
@@ -10,17 +11,17 @@
               <span class="me-3">
                 <img src="images/location.png" alt=""
               /></span>
-              <span>Armenia, Yerevan</span>
+              <span>{{ contact.location }}</span>
             </li>
             <li class="py-2">
               <span class="me-3"> <img src="images/client.png" alt="" /> </span>
-              <span>27 Nikoghayos Tigranyan St, 0014</span>
+              <span>{{ contact.address }}</span>
             </li>
             <li class="py-2">
               <span class="me-3">
                 <img src="images/message.png" alt="" />
               </span>
-              <span>info@armatanalytics.com</span>
+              <span>{{ contact.email }}</span>
             </li>
             <li class="w-75">
               <hr />
@@ -29,17 +30,19 @@
               <span class="me-3">
                 <img src="images/calendar.png" alt=""
               /></span>
-              <span>Mon-Fri: 9 AM to 6 PM</span>
+              <span>{{ contact.date }}</span>
             </li>
             <li class="py-2">
               <span class="me-3"> <img src="images/phone.png" alt="" /> </span>
-              <span>+37495545222</span>
+              <span>{{ contact.number }}</span>
             </li>
             <li class="py-2">
               <span class="me-3">
                 <img src="images/linkedin.png" alt="" />
               </span>
-              <span>Follow us for updates</span>
+              <span>
+                <a :href="contact.linkedin" target="_blank">Follow us for updates</a>
+              </span>
             </li>
           </ul>
         </div>
@@ -59,10 +62,18 @@
       </div>
     </b-col>
   </b-row>
+</div>
+
 </template>
 <script>
 export default {
   name: "ContactUs",
+  data() {
+    return { contactUs: [] };
+  },
+  async fetch() {
+    this.contactUs = await this.$content('contactus', { deep: true }).fetch();
+  }
 };
 </script>
 <style>

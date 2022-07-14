@@ -1,19 +1,19 @@
 <template>
   <div>
     <!-- Start Presentation -->
-    <section class="py-13 bg-image bg-cover img-responsive d-block">
-      <div class="container py-6 py-md-5 mb text-white z-index-20">
-        <div class="row mt-3 py-4 px-2">
-          <div class="col-lg-12 mt-5">
+    <section class="py-13 bg-cover img-responsive d-block">
+      <b-container class="py-6 py-md-5 mb text-white z-index-20">
+        <b-row class="mt-3 py-4 px-2">
+          <b-col lg="12" class="mt-5">
             <div class="text-left">
               <h1 class="h1 font-weight-bold py-md-5 mt-5 text-shadow">
                 See the change with Armat. <br />
                 Delivering Quality
               </h1>
             </div>
-          </div>
-        </div>
-      </div>
+          </b-col>
+        </b-row>
+      </b-container>
     </section>
     <!-- End Presentation -->
 
@@ -139,27 +139,28 @@
     <!-- End Terapeutic Areas -->
 
     <!-- Start Join Aramt -->
-    <b-container>
+    <div id="learn" v-for="(join, index) in joinArmat" :key="index">
       <b-row id="join-us" class="text-center p-5">
         <b-col>
-          <h1>Join Armat</h1>
-          <p>We are constantly looking for talent and we want to see it flourish.</p>
+          <h1>{{ join.title }}</h1>
+          <p>{{ join.description }}</p>
         </b-col>
       </b-row>
-      <b-row id="learn" class="img-responsive bg-image text-center p-5">
-        <b-col cols="12">
-          <span class="text align-self-end p-3">
-            Whether you are an industry veteran or just making your first steps in biotechnology, we are waiting for you
-            at Armat! Newbies can benefit from our special training programs which will help them build up the ladder.
-            Whilst, more experienced candidates will directly work with the top pharma and get exposure to new market
-            challenges. Regardless of the choice, your professional growth is guaranteed with us.
-          </span>
-          <div class="col align-item-center p-5">
-            <button type="button" class="btn btn-primary btn-lg">Learn More</button>
-          </div>
-        </b-col>
-      </b-row>
-    </b-container>
+      <section class="img-responsive" :style="{backgroundImage: 'url(' + join.image + ')'}">
+        <b-container fluid="sm" class="bv-row bv-row-flex-cols pt-5">
+          <b-row class="text-center pt-5" >
+            <b-col  align-self="center" cols="12" class="text">
+              <div>
+                <span class="pt-lg-5">{{ join.body.children[0].children[0].value }}</span>
+              <b-col class="pt-lg-5">
+                <b-button variant="primary" size="lg" type="button" class="btn">Learn More</b-button>
+              </b-col>
+              </div>
+            </b-col>
+          </b-row>
+        </b-container>
+      </section>
+    </div>
     <!-- End Join Aramt -->
   </div>
 </template>
@@ -186,13 +187,15 @@ export default {
     let aboutUs = await $content('aboutus').fetch();
     let ourMission = await $content('ourmission').fetch();
     let ourServices = await $content('ourservices').fetch();
+    let joinArmat = await $content('joinarmat').fetch();
    
     return {
       aboutUs,
       ourMission,
       ourServices,
       reporting,
-      dataManagement
+      dataManagement,
+      joinArmat
     }
   }
 }
@@ -324,4 +327,34 @@ h1.h1 {
   cursor: pointer;
 }
 /* border hover end */
+
+#learn span {
+  font-family: 'Source Sans Pro';
+  font-weight: 300;
+  font-size: 20px;
+  color: white
+}
+
+#join-us h1 {
+  font-size: 42px;
+  font-weight: 600;
+  color: #263e52;
+}
+
+#join-us p {
+  font-size: 20px;
+  font-weight: 400;
+  color: #263e52;
+}
+
+#learn .btn {
+  background-color: #37BFEF;
+  font-size: 16px;
+}
+
+#learn .img-responsive {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 55vh;
+}
 </style>
