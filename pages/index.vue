@@ -120,11 +120,33 @@
     <!-- End Data Managment -->
 
     <!-- Start Terapeutic Areas -->
+    <!-- <section class="areas pt-3">
+      <b-container class="bv-example-row bv-example-row-flex-cols">
+      <b-row id="therapeutic" class="text-center my-5">
+        <b-col cols="12">
+          <h1>Therapeutic Areas</h1>
+          <p>We also support you in data management procedures. </p>
+        </b-col>
+      </b-row>
+      <b-row >
+        <b-col align-self="center" cols="12" class="text-right my-5" style="border-image: url('images/therapeutic.png'); border:3px">
+          <img src="images/ellipse 15.png" alt="">
+        </b-col>
+      </b-row>
+    </b-container>
+    </section> -->
 
-    <div
-      class="bg-image img-fluid"
-      style="background-image: url('images/terapeutic.png'); width: auto; height: 110vh; background-repeat: no-repeat"
-    ></div>
+
+    <div class="bg-image img-fluid bg-therapeutic" >
+      <img class="bgtop1" src="images/medical-records.png" alt="">
+      <img class="bg2" src="images/oncology.png" alt="">
+      <img class="bg3" src="images/virus.png" alt="">
+      <img class="bg4" src="images/brain.png" alt="">
+      <img class="bg5" src="images/dermatology.png" alt="">
+      <img class="bg6" src="images/immunity.png" alt="">
+    </div>
+
+
 
     <!-- <div class="container-fluid bg-light">
     <div id="data" class="row text-center my-5 p-5">
@@ -188,7 +210,7 @@ export default {
     let ourMission = await $content('ourmission').fetch();
     let ourServices = await $content('ourservices').fetch();
     let joinArmat = await $content('joinarmat').fetch();
-   
+
     return {
       aboutUs,
       ourMission,
@@ -216,6 +238,10 @@ h1 {
   font-family: 'Source Sans Pro';
 }
 
+p {
+  font-family: 'Source Sans Pro';
+}
+
 h1.h1 {
   font-size: 70px;
 }
@@ -228,6 +254,7 @@ h1.h1 {
 
 #about p {
   font-size: 20px;
+  color: #263e52;
   letter-spacing: 0.02rem;
   font-weight: 400;
 }
@@ -240,12 +267,13 @@ h1.h1 {
 
 #our-mission p {
   font-size: 20px;
+  color: #263e52;
   letter-spacing: 0.02rem;
   font-weight: 400;
 }
 
 #our-services h1 {
-  font-size: 44px;
+  font-size: 45px;
   font-weight: 700;
   color: #263e52;
 }
@@ -257,7 +285,7 @@ h1.h1 {
 }
 
 #reporting h1 {
-  font-size: 42px;
+  font-size: 45px;
   font-weight: 600;
   color: #263e52;
 }
@@ -273,7 +301,7 @@ h1.h1 {
 }
 
 #data h1 {
-  font-size: 42px;
+  font-size: 45px;
   font-weight: 600;
   color: #263e52;
 }
@@ -285,7 +313,7 @@ h1.h1 {
 }
 
 .radius-1 {
-  border-radius: 1.5rem;
+  border-radius: 1.8rem;
 }
 
 /* start Data icon-box */
@@ -336,7 +364,7 @@ h1.h1 {
 }
 
 #join-us h1 {
-  font-size: 42px;
+  font-size: 45px;
   font-weight: 600;
   color: #263e52;
 }
@@ -357,4 +385,75 @@ h1.h1 {
   background-size: cover;
   height: 55vh;
 }
+
+#therapeutic h1{
+  font-size: 45px;
+  font-weight: 600;
+  color: #263e52;
+}
+
+#therapeutic p{
+  font-size: 20px;
+  font-weight: 400;
+  color: #263e52;
+}
+.areas {
+  background-color: #F9FBFC;
+}
+
+@media only screen and (min-width: 1425px) {
+  .bgtop1{
+    position: absolute;
+    top: 36%;
+    left: 50.2%;
+    z-index: 2;
+
+  }
+  .bg2 {
+  position: absolute;
+  top: 47.5%;
+  left: 61.8%;
+  z-index: 2;
+
+}
+
+.bg3 {
+  position: absolute;
+  top: 72.7%;
+  left: 63%;
+  z-index: 2;
+}
+
+.bg4 {
+  position: absolute;
+  top: 86%;
+  left: 50%;
+  z-index: 2;
+}
+
+.bg5 {
+  position: absolute;
+  top: 72.7%;
+  left: 37%;
+  z-index: 2;
+}
+
+.bg6 {
+  position: absolute;
+  top: 47.5%;
+  left: 38%;
+  z-index: 2;
+}
+}
+
+.bg-therapeutic {
+  background-image: url('static/images/empty.png');
+  background-size: cover;
+  width: auto;
+  height: 110vh;
+  position: relative;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
 </style>

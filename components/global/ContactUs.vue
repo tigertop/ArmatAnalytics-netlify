@@ -1,7 +1,7 @@
 <template>
 <div>
   <b-row v-for="(contact, index) in this.contactUs" :key="index" class="justify-content-center bg" id="contact">
-    <b-col cols="12" class="text-center">
+    <b-col cols="12" class="text-center bg-white">
       <h1 class="contact">{{ contact.title }}</h1>
     </b-col>
     <b-col md="5" lg="5" sm="12">
@@ -9,12 +9,14 @@
           <ul style="list-style: none">
             <li class="py-2">
               <span class="me-3">
-                <img src="images/location.png" alt=""
-              /></span>
+                <img src="images/location.png" alt="" />
+              </span>
               <span>{{ contact.location }}</span>
             </li>
             <li class="py-2">
-              <span class="me-3"> <img src="images/client.png" alt="" /> </span>
+              <span class="me-3">
+                <img src="images/client.png" alt="" />
+              </span>
               <span>{{ contact.address }}</span>
             </li>
             <li class="py-2">
@@ -28,8 +30,8 @@
             </li>
             <li class="py-2">
               <span class="me-3">
-                <img src="images/calendar.png" alt=""
-              /></span>
+                <img src="images/calendar.png" alt=""/>
+              </span>
               <span>{{ contact.date }}</span>
             </li>
             <li class="py-2">
@@ -40,7 +42,7 @@
               <span class="me-3">
                 <img src="images/linkedin.png" alt="" />
               </span>
-              <span>
+              <span class="pt-3">
                 <a :href="contact.linkedin" target="_blank">Follow us for updates</a>
               </span>
             </li>
@@ -85,4 +87,9 @@ export default {
   background-color: #f9fbfc;
 }
 
+#contact h1 {
+  font-size: 45px;
+  font-weight: 600;
+  color: #263e52;
+}
 </style>
