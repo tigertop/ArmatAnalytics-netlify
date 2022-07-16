@@ -133,4 +133,17 @@ collections:
       - { label: 'Working Days', name: 'date', widget: 'string', required: true }
       - { label: 'Number', name: 'number', widget: 'string', required: true }
       - { label: 'LinkedIn', name: 'linkedin', widget: 'string', required: true }
+  - name: 'therapeuticareas'
+    label: 'Therapeutic Areas'
+    folder: 'content/therapeuticareas'
+    create: true
+    editor:
+      preview: false
+    format: 'frontmatter'
+    slug: '{{slug}}'
+    preview_path: 'therapeuticareas/{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'string', required: true }
+      - { label: 'Background Image', name: 'image', widget: 'image', required: true, allow_multiple: false }
 

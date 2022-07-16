@@ -24,11 +24,12 @@ export default {
 
 <style>
 body, html {
-    margin:0 auto;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    /* overflow-x: hidden; */
+   margin: 0;
+   padding: 0;
+}
+
+body{
+   overflow-x: hidden;
 }
 
 :root {
@@ -48,7 +49,6 @@ body, html {
 .container{
     max-width: 1440px;
 }
-
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
 </style>
