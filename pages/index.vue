@@ -80,9 +80,9 @@
       <b-row class="row-cols-2 row-cols-lg-3 g-5 justify-content-around align-self-stretch">
         <b-col v-for="(report, index) in reporting" :key="index" class="text-center align-items-stretch mb-4">
           <div class="p-5 shadow-r rounded-4 radius-1 h-100">
-            <b-icon class="my-3">
+            <div class="my-3">
               <img class="align-item-center" :src="report.icon" alt="" />
-            </b-icon>
+            </div>
             <h6>{{ report.title }}</h6>
           </div>
         </b-col>
