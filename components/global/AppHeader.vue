@@ -3,7 +3,7 @@
  <b-container>
   <b-navbar
     id="navbar"
-    class="nav-links bg-white "
+    class="bg-white "
     toggleable="lg"
     type="light"
     sticky="true"
@@ -98,9 +98,9 @@ export default {
   border-radius: 50%!important;
 }
 
-.nav-links ul li .nav-link::after {
+#navbar ul li .nav-link::after {
   content: ''!important;
-  width: 0%!important;
+  width: 0%;
   height: 2px!important;
   background: var(--cornflowerblue-color)!important;
   display: block!important;
@@ -108,7 +108,7 @@ export default {
   transition: 0.5s!important;
 }
 
-.nav-links ul li:not(.active) .nav-link:hover::after {
+#navbar ul li:not(.active) .nav-link:hover::after {
   width: 100%!important;
 }
 
