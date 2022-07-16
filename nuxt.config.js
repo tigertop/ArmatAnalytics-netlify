@@ -2,7 +2,7 @@ import * as SITE_INFO from './content/site/info.json'
 import { COLOR_MODE_FALLBACK } from './utils/globals.js'
 
 export default {
-  ssr: true,
+  ssr: false,
   target: 'static',
   components: true,
   generate: {
@@ -64,13 +64,13 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/assets/scss/custom.scss'],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
     { src: '~/plugins/vue-content-placeholders.js'},
-    { src: '@/plugins/bootstrap-vue', mode: 'client' },
+    { src: '~/plugins/bootstrap.js' },
     { src: "@/plugins/aos", mode: 'client' }
   ],
   purgeCSS: {
@@ -84,11 +84,17 @@ export default {
    ** Nuxt.js modules
    */
   modules: ['bootstrap-vue/nuxt', '@nuxt/content', 'nuxt-purgecss'],
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
+  },
   bootstrapVue: {
-    bootstrapCSS: false, // here you can disable automatic bootstrapCSS in case you are loading it yourself using sass
-    bootstrapVueCSS: false, // CSS that is specific to bootstrapVue components can also be disabled. That way you won't load css for modules that you don't use
-    componentPlugins: [], // Here you can specify which components you want to load and use
-    directivePlugins: [] // Here you can specify which directives you want to load and use. Look into official docs to get a list of what's available
+    bootstrapCSS: false,
+    icons: true,
   },
   /*
    ** Build configuration
