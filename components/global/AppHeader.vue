@@ -112,8 +112,8 @@ export default {
 }
 
 .main-btn:hover {
-  background: var(--midnightblue-color);
-  border-color: var(--midnightblue-color);
-  transition: all 0.2s ease-in-out;
+  background: #013164;
+  border-color: #013164;
+  transition: all 0.25s ease-in-out;
 }
 </style>

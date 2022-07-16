@@ -30,7 +30,7 @@
           sm="12"
           class="text-lg-right text-md-right text-center mt-2"
         >
-          <b-link>© 2022. All rights reserved.</b-link>
+          <a>© 2022. All rights reserved.</a>
         </b-col>
       </b-row>
     </b-container>

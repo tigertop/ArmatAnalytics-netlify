@@ -2,7 +2,7 @@ import * as SITE_INFO from './content/site/info.json'
 import { COLOR_MODE_FALLBACK } from './utils/globals.js'
 
 export default {
-  ssr: false,
+  ssr: true,
   target: 'static',
   components: true,
   generate: {
@@ -95,6 +95,9 @@ export default {
    */
   build: {
     extractCSS: true,
+    babel: {
+      compact: true
+    },
     extend(config, ctx) {
       if (ctx.isClient) {
         // BootstrapVue and PortalVue require access to the global Vue reference (via import Vue from 'vue').
