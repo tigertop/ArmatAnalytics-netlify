@@ -47,7 +47,11 @@ export default {
         href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap',
         media: 'print',
         onload: `this.media='all'`
-      }
+      },
+      { rel: 'stylesheet', 
+        type: 'text/css', 
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css' 
+    }
     ], // ? Imports the font 'Inter', can be optimized by the netlify plugin 'Subfont' by uncommenting it in `netlify.toml`
     noscript: [
       {
@@ -64,7 +68,8 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/scss/custom.scss'],
+  // css: ['@/assets/scss/custom.scss'],
+  css: [],
   /*
    ** Plugins to load before mounting the App
    */
@@ -84,14 +89,14 @@ export default {
    ** Nuxt.js modules
    */
   modules: ['bootstrap-vue/nuxt', '@nuxt/content', 'nuxt-purgecss'],
-  module: {
-    rules: [
-      {
-        test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-    ],
-  },
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.s[ac]ss$/i,
+  //       use: ['style-loader', 'css-loader', 'sass-loader'],
+  //     },
+  //   ],
+  // },
   bootstrapVue: {
     bootstrapCSS: false,
     icons: true,
