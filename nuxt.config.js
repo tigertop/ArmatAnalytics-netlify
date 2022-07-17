@@ -75,11 +75,10 @@ export default {
    */
   plugins: [
     { src: '~/plugins/vue-content-placeholders.js'},
-    { src: '~/plugins/bootstrap.js' },
-    { src: "@/plugins/aos", mode: 'client' }
+    { src: '~/plugins/bootstrap.js' }
   ],
   purgeCSS: {
-    whitelist: ["aos-init", "aos-animate", "data-aos-delay", "data-aos-duration", "fade-up", "zoom-in"]
+    // whitelist: ["aos-init", "aos-animate", "data-aos-delay", "data-aos-duration", "fade-up", "zoom-in"]
   },
   /*
    ** Nuxt.js dev-modules

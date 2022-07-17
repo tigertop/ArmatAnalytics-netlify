@@ -1,5 +1,5 @@
 <template>
-  <div class="aos-scroll-hidden">
+  <div>
     <!-- Start Presentation -->
     <section class="py-13 bg-cover img-responsive d-block">
       <b-container class="py-6 py-md-5 mb text-white z-index-20">
@@ -27,7 +27,7 @@
         </b-col>
         <b-col lg="6" md="6" sm="12">
           <div class="text-lg-right">
-            <b-img data-aos="fade-left" data-aos-duration="1200" :src="data.image" fluid alt="Responsive image" style="width: 85%"></b-img>
+            <b-img :src="data.image" fluid alt="Responsive image" style="width: 85%"></b-img>
           </div>
         </b-col>
       </b-row>
@@ -38,7 +38,7 @@
       <b-row v-for="(data, index) in ourMission" :key="index" align-h="between pt-5">
         <b-col lg="7" order-lg="1" md="7" order-md="1" sm="12" order="2">
           <div class="text-left">
-            <b-img data-aos="fade-right" data-aos-duration="1200" :src="data.image" fluid alt="Responsive image" style="width: 75%"></b-img>
+            <b-img :src="data.image" fluid alt="Responsive image" style="width: 75%"></b-img>
           </div>
         </b-col>
         <b-col lg="5" order-lg="2" md="5" order-md="2" sm="12" order="1">
@@ -55,8 +55,6 @@
       <b-container class="pt-5">
         <b-row v-for="(data, index) in ourServices" :key="index" class="pt-5 d-flex">
           <div
-            data-aos="fade-up"
-            data-aos-duration="1350"
             class="col-lg-12 ms-lg-5r text-center p-5"
             style="background-color: #f5f8fb; border-radius: 1rem"
           >
