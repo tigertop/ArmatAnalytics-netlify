@@ -1,5 +1,5 @@
 ---
 title: CRF CDISC Annotation
-icon: images/crf.png
+icon: /images/CRF.png
 sortkey: 1
 ---
