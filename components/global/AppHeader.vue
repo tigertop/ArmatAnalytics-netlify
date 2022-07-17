@@ -6,7 +6,6 @@
     class="bg-white "
     toggleable="lg"
     type="light"
-    sticky="true"
   >
     <b-navbar-brand href="#">
       <b-img
@@ -40,33 +39,19 @@ export default {
 </script>
 
 <style>
-:root {
-  --cornflowerblue-color: #72aff7;
-  --midnightblue-color: #013164;
-  --darkturquoise-color: #00b6e0;
-  --darkslategray-color: #25546d;
-  --mediumturquoise-color: #37bfef;
-  --ghostwhite-color: #f9fbfc;
-  --lightsteelblue-color: #c2b6e5;
-  --white-color: #ffffff;
-  --navy-color: #25546d;
-  --darkerblue-color: #263e52;
-  --justsky-color: #f5f8fb;
-}
-
 #navbar .nav-item {
   margin: 0 !important;
   padding: 0 !important;
 }
 
 #navbar .main-btn {
-  background-color: var(--cornflowerblue-color)!important;
+  background-color: #72aff7!important;
   margin: 10px 10px 10px !important;
   padding: 10px 10px 10px !important;
   border-radius: 10px !important;
-  border-color: var(--cornflowerblue-color) !important;
+  border-color: #72aff7 !important;
   text-decoration: none !important;
-  color: var(--white-color) !important;
+  color: #ffffff !important;
   font-size: 18px !important;
   font-weight: 700 !important;
   display: inline-block !important;
@@ -74,25 +59,21 @@ export default {
 
 #navbar .nav-item a {
   font-size: 18px!important;
-  font-weight: 400!important;
-  color: var(--navy-color) !important;
+  font-weight: 400;
+  color: #25546d !important;
   margin: 20px 30px 0!important;
   padding: 0px!important;
 }
 
 #navbar .nav-item .active {
-  font-size: 18px!important;
   font-weight: 700!important;
-  color: var(--navy-color)!important;
-  margin: 20px 30px 0!important;
-  padding: 0px!important;
 }
 
 #navbar .active::after {
   content: ''!important;
   width: 8px!important;
   height: 8px!important;
-  background: var(--cornflowerblue-color)!important;
+  background: #72aff7!important;
   display: block!important;
   margin: auto!important;
   border-radius: 50%!important;
@@ -102,7 +83,7 @@ export default {
   content: ''!important;
   width: 0%;
   height: 2px!important;
-  background: var(--cornflowerblue-color)!important;
+  background: #72aff7!important;
   display: block!important;
   margin: auto!important;
   transition: 0.5s!important;

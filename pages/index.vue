@@ -194,7 +194,6 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
 .bg-cover {
   height: 81vh;
   background-image: url(/images/Desktop1.png);

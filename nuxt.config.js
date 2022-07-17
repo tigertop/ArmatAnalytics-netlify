@@ -40,11 +40,11 @@ export default {
       {
         rel: 'preload',
         as: 'style',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'
+        href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap'
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap',
         media: 'print',
         onload: `this.media='all'`
       },
@@ -56,7 +56,7 @@ export default {
     noscript: [
       {
         innerHTML:
-          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">'
+          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap">'
       }
     ],
     __dangerouslyDisableSanitizers: ['noscript']
@@ -68,7 +68,6 @@ export default {
   /*
    ** Global CSS
    */
-  // css: ['@/assets/scss/custom.scss'],
   css: [],
   /*
    ** Plugins to load before mounting the App
@@ -77,9 +76,6 @@ export default {
     { src: '~/plugins/vue-content-placeholders.js'},
     { src: '~/plugins/bootstrap.js' }
   ],
-  purgeCSS: {
-    // whitelist: ["aos-init", "aos-animate", "data-aos-delay", "data-aos-duration", "fade-up", "zoom-in"]
-  },
   /*
    ** Nuxt.js dev-modules
    */
@@ -87,15 +83,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['bootstrap-vue/nuxt', '@nuxt/content', 'nuxt-purgecss'],
-  // module: {
-  //   rules: [
-  //     {
-  //       test: /\.s[ac]ss$/i,
-  //       use: ['style-loader', 'css-loader', 'sass-loader'],
-  //     },
-  //   ],
-  // },
+  modules: ['bootstrap-vue/nuxt', '@nuxt/content'],
   bootstrapVue: {
     bootstrapCSS: false,
     icons: true,
@@ -104,7 +92,21 @@ export default {
    ** Build configuration
    */
   build: {
-    extractCSS: true,
+    extractCSS: {
+      ignoreOrder: true
+    },
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.(css|vue)$/,
+            chunks: 'all',
+            enforce: true
+          }
+        }
+      }
+    },
     babel: {
       compact: true
     },

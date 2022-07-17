@@ -44,7 +44,6 @@ export default {
 </script>
 
 <style>
-/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap"); */
 #footer {
   background-image: url("~/static/images/Group12.png");
   padding: 1rem;
@@ -54,6 +53,6 @@ export default {
   font-size: 16px;
   opacity: 0.6;
   font-weight: 200;
-  color: var(--white-color) !important;
+  color: #ffffff !important;
 }
 </style>
