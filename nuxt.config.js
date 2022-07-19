@@ -83,7 +83,10 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['bootstrap-vue/nuxt', '@nuxt/content'],
+  modules: ['bootstrap-vue/nuxt', '@nuxt/content', '@nuxtjs/markdownit'],
+  markdownit: {
+    runtime: true // Support `$md()`
+  },
   bootstrapVue: {
     bootstrapCSS: false,
     icons: true,

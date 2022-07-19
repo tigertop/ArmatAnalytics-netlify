@@ -173,3 +173,17 @@ collections:
       - { label: 'Description ', name: 'description', widget: 'string', required: true }
       - { label: 'Icon', name: 'icon', widget: 'image', required: true, allow_multiple: false }
       - { label: 'Sort Key', name: 'sortkey', widget: 'number', required: false }
+  - name: 'ourvacancies'
+    label: 'Our Vacancies'
+    folder: 'content/ourvacancies'
+    create: true
+    editor:
+      preview: false
+    format: 'frontmatter'
+    slug: '{{slug}}'
+    preview_path: 'ourvacancies/{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'markdown', required: true }
+
+
