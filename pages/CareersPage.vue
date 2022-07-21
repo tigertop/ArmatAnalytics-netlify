@@ -48,73 +48,73 @@
      <!-- Start The Root -->
         <section class="root pt-5" id="root">
             <b-container class="bv-example-row">
-                <b-row align-h="center">
+                <b-row class="text-center">
+                    <b-col col lg="12">
+                        <h1 class="title pb-5">The ROOT program</h1>
+                    </b-col>
+                </b-row>
+                <b-row align-h="center" class="pb-5">
                     <b-col cols lg="5" md="5" sm="12" class="text-lg-left">
                         <div class="pt-5">
-                            <p class="root-p">Armat Analytics’s social mission is to educate new generations of programmers who will support the life saving industry of medication and drug development. </p>
+                            <p class="root-p" v-html="$md.render(theRootProgram[1].description)"></p>
                         </div>
                     </b-col>
                     <b-col cols lg="5" md="5" sm="12" class="text-lg-right">
-                        <img class="img-fluid" src="/images/hoodie-guy-right.png" alt="">
+                        <img class="img-fluid" :src=" theRootProgram[1].image" alt="">
                     </b-col>
                 </b-row>
-                <b-row align-h="center" class="ml-lg-5 pt-lg-5 pt-sm-5">
+                <b-row align-h="center" class="ml-lg-5 pt-5">
                     <b-col cols lg="5" md="5" sm="12" class="text-lg-left">
                         <div class="m-lg-3">
-                           <img class="img-fluid me-lg-5" src="/images/hoodie-guy-left.png" alt="">
+                           <img class="img-fluid me-lg-5" :src=" theRootProgram[0].image" alt="">
                         </div>
                     </b-col>
                     <b-col cols lg="5" md="5" sm="12" class="text-lg-left">
                         <div class="pt-lg-5 ml-lg-5">
-                            <p class="root-p">Our training program  “The ROOT ”  is designed to teach you the fundamentals of statistical programming and clinical reporting! </p>
-                        </div>
-                        <div class="pt-lg-3 ml-lg-5">
-                            <h2 class="root-h2">Your only investment is your <span class="h2color">time</span> and <span class="h2color">dedication</span>.</h2>
+                            <p class="root-p" v-html="$md.render(theRootProgram[0].description)"></p>
                         </div>
                     </b-col>
                 </b-row>
-                <b-row class="pt-5">
-                    <div class="col-2"></div>
-                    <div class="col-8 dashed-container pt-5">
+                <b-row v-if="theRootSubjects.length > 0" class="py-5">
+                    <b-col cols lg="2" md="2"></b-col>
+                    <b-col cols lg="8" md="8" class="dashed-container pt-5">
                         <div class="text-center pb-1">
-                            <h5 class="pb-4">The Root will teach you:</h5>
+                            <h5 class="pb-5 pt-2 root-h5">{{ theRootSubjects[0].title }}</h5>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 col-xs-12 d-flex justify-content-center">
-                                <ul>
-                                    <li>Fundamentals of Programming</li>
-                                    <li>SAS base programming</li>
-                                    <li>SQL</li>
-                                    <li>Fundamentals of statistics</li>
+                        <b-row>
+                            <b-col cols lg="6" md="6" class="d-sm-flex justify-content-center">
+                                <ul class="purple-dot ul-font">
+                                    <li v-for="(subject, index) in theRootSubjects[0].Subjects.slice(0, subjectsCount/2)" :key="index">
+                                        {{ subject.title }}
+                                    </li>
                                 </ul>
-                            </div>
-                            <div class="col-md-6 col-xs-12 ul2 pb-5 d-flex justify-content-center">
-                                <ul>
-                                    <li>Working with Statistical Procedures</li>
-                                    <li>SAS Macro language</li>
-                                    <li>Data visualization with SAS</li>
-                                    <li>Clinical Data Standardization and Reporting</li>
+                            </b-col>
+                            <b-col cols lg="6" md="6" class="pb-5 d-sm-flex justify-content-center">
+                                <ul class="blue-dot ul-font">
+                                    <li v-for="(subject, index) in theRootSubjects[0].Subjects.slice(subjectsCount/2, subjectsCount)" :key="index">
+                                        {{ subject.title }}
+                                    </li>
                                 </ul>
-                            </div>
+                            </b-col>
+                        </b-row>
+                    </b-col>
+                    <b-col lg="12" md="12" sm="12">
+                        <div class="text-center pt-5">
+                        <p class="description" v-html="$md.render(theRootSubjects[0].description)"></p>
                         </div>
-                    </div>
+                        <div class="text-center py-5" id="sub-button">
+                            <button type="button" class="btn btn-primary btn-lg text-capitalize">Submit application</button>
+                        </div>
+                    </b-col>
                 </b-row>
+
             </b-container>
-            <div class=" text-center pt-5">
-            <small>It is a unique opportunity to take your first steps in the biotechnology industry and become a part of change that matters.</small>
-            </div>
-            <div class=" text-center pb-5">
-            <small><b>Join the program, </b> show your best and be among the selected students who will join the Armat team! </small>
-            </div>
-            <div class=" text-center py-4">
-            <button type="button" class="btn btn-primary btn-lg text-capitalize">Submit application</button>
-            </div>
       </section>
      <!-- End The Root -->
     <!-- accordion -->
         <section class="section-background pb-5">
             <b-row class="text-center py-5">
-                <b-col class="col">
+                <b-col>
                 <h1 class="title">Our vacancies</h1>
                 </b-col>
              </b-row>
@@ -154,10 +154,15 @@ export default {
         let whyJoinContents = await $content('whyjoin').fetch();
         let whyJoin = _.orderBy(whyJoinContents, 'sortkey');
         let ourVacancies = await $content('ourvacancies').fetch();
-
+        let theRootProgram = await $content('therootprogram').fetch();
+        let theRootSubjects = await $content('therootsubjects').fetch();
+        let subjectsCount = theRootSubjects[0].Subjects.length;
         return {
             keyTosuccess,
             whyJoin,
+            theRootProgram,
+            theRootSubjects,
+            subjectsCount,
             ourVacancies
         }
     }
@@ -331,7 +336,7 @@ button {
     font-weight: 600;
     color: var(--darkerblue-color);
 }
-.root h5 {
+.root-h5 {
     font-family: 'Source Sans Pro';
     font-weight: 600;
     color: var(--darkerblue-color);
@@ -353,5 +358,32 @@ button {
     z-index: 10;
 }
 
+.dashed-container{
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='20' ry='20' stroke='rgba(0, 0, 0, 0.2)' stroke-width='3' stroke-dasharray='20%2c 20' stroke-dashoffset='100' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: 1.250em;
+}
+
+.purple-dot {
+    list-style-image: url('/images/purple-dot.png');
+}
+
+.blue-dot{
+    list-style-image: url('/images/blue-dot.png');
+}
+
+.ul-font {
+    font-size: 1.08em;
+    color: #263E52;
+    opacity: 0.9;
+}
+
+ul.ul-font li {
+    margin-bottom: 0.5em;
+}
+
+#sub-button .btn {
+    background-color: #81C3FD;
+    border: none;
+}
 /*  root */
 </style>

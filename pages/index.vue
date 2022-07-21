@@ -81,7 +81,7 @@
             <div class="my-3">
               <img class="align-item-center" :src="report.icon" alt="" />
             </div>
-            <h6>{{ report.title }}</h6>
+            <h6 class="report-h6">{{ report.title }}</h6>
           </div>
         </b-col>
       </b-row>
@@ -143,7 +143,7 @@
               <div>
                 <span class="pt-lg-5 lrn-description">{{ join.body.children[0].children[0].value }}</span>
               <b-col class="pt-lg-5">
-                <b-button variant="primary" size="lg" type="button" class="btn">Learn More</b-button>
+                <b-button variant="primary" size="lg" type="button" class="btn border-0">Learn More</b-button>
               </b-col>
               </div>
             </b-col>
@@ -229,6 +229,12 @@ export default {
 
 .title-h1 {
   font-size: 4.375em;
+}
+
+.report-h6 {
+  font-family:'Poppins', sans serif;
+  font-size: 1.125em;
+  font-weight: 500;
 }
 
 #reporting .shadow-r {

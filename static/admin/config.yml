@@ -185,5 +185,34 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'markdown', required: true }
-
-
+  - name: 'therootprogram'
+    label: 'The Root program'
+    folder: 'content/therootprogram'
+    create: false
+    editor:
+      preview: false
+    format: 'frontmatter'
+    slug: '{{slug}}'
+    preview_path: 'therootprogram/{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'markdown' }
+      - { label: 'Image', name: 'image', widget: 'image', required: true, allow_multiple: false }
+  - name: 'therootsubjects'
+    label: 'The Root Subjects'
+    folder: 'content/therootsubjects'
+    create: true
+    editor:
+      preview: false
+    format: 'frontmatter'
+    slug: '{{slug}}'
+    preview_path: 'therootsubjects/{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - label: 'subjects'
+        name: 'Subjects'
+        widget: 'list'
+        summary: '{{fields.title}}'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'markdown', required: true }
