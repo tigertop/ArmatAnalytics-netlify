@@ -77,11 +77,11 @@
       </b-row>
       <b-row class="row-cols-2 row-cols-lg-3 g-5 justify-content-around align-self-stretch">
         <b-col v-for="(report, index) in reporting" :key="index" class="text-center align-items-stretch mb-4">
-          <div class="p-5 shadow-r rounded-4 radius-1 h-100">
+          <div class="p-5 shadow-r radius-1 h-100">
             <div class="my-3">
               <img class="align-item-center" :src="report.icon" alt="" />
             </div>
-            <h6>{{ report.title }}</h6>
+            <h6 class="report-h6">{{ report.title }}</h6>
           </div>
         </b-col>
       </b-row>
@@ -111,7 +111,7 @@
       </b-row>
     </b-container>
     <!-- End Data Managment -->
-    <!-- Start Terapeutic Areas -->
+    <!-- Start Therapeutic Areas -->
     <section class="pt-3 bg-light-grey">
       <b-container v-for="(area, index) in therapeuticAreas" :key="index"  class="bv-example-row bv-example-row-flex-cols">
         <b-row id="therapeutic" class="text-center my-5">
@@ -127,7 +127,7 @@
         </b-row>
       </b-container>
     </section>
-    <!-- End Terapeutic Areas -->
+    <!-- End Therapeutic Areas -->
     <!-- Start Join Aramt -->
     <div id="learn" v-for="(join, index) in joinArmat" :key="index">
       <b-row id="join-us" class="text-center p-5 mt-5">
@@ -143,7 +143,7 @@
               <div>
                 <span class="pt-lg-5 lrn-description">{{ join.body.children[0].children[0].value }}</span>
               <b-col class="pt-lg-5">
-                <b-button variant="primary" size="lg" type="button" class="btn">Learn More</b-button>
+                <b-button variant="primary" size="lg" type="button" class="btn border-0">Learn More</b-button>
               </b-col>
               </div>
             </b-col>
@@ -207,28 +207,34 @@ export default {
  }
 
 .title {
-  font-family: 'Source Sans Pro';
-  font-size: 45px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 2.8em;
   color: #263e52;
   font-weight: 600;
 }
 
 .description {
-  font-family: 'Source Sans Pro';
-  font-size: 20px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.25em;
   color: #263e52;
   letter-spacing: 0.02rem;
   font-weight: 400;
 }
 
 .area-description {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
 
 }
 
 .title-h1 {
-  font-size: 70px;
+  font-size: 4.375em;
+}
+
+.report-h6 {
+  font-family:'Poppins', sans serif;
+  font-size: 1.125em;
+  font-weight: 500;
 }
 
 #reporting .shadow-r {
@@ -261,8 +267,8 @@ export default {
 }
 
 .d-description {
-  font-family: 'Source Sans Pro';
-  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.125em;
   font-weight: 500;
   color: #263E52;
 }
@@ -276,15 +282,15 @@ export default {
 }
 
 .lrn-description {
-  font-family: 'Source Sans Pro';
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 1.25em;
   color: white
 }
 
 #learn .btn {
   background-color: #37BFEF;
-  font-size: 16px;
+  font-size: 1em;
 }
 
 #learn .img-responsive {

@@ -48,15 +48,15 @@ export default {
         media: 'print',
         onload: `this.media='all'`
       },
-      { rel: 'stylesheet', 
-        type: 'text/css', 
-        href: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css' 
-    }
+      { rel: 'stylesheet',
+        type: 'text/css',
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css'
+      }
     ], // ? Imports the font 'Inter', can be optimized by the netlify plugin 'Subfont' by uncommenting it in `netlify.toml`
     noscript: [
       {
         innerHTML:
-          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap">'
+          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap">'
       }
     ],
     __dangerouslyDisableSanitizers: ['noscript']
@@ -83,7 +83,10 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['bootstrap-vue/nuxt', '@nuxt/content'],
+  modules: ['bootstrap-vue/nuxt', '@nuxt/content', '@nuxtjs/markdownit'],
+  markdownit: {
+    runtime: true // Support `$md()`
+  },
   bootstrapVue: {
     bootstrapCSS: false,
     icons: true,
