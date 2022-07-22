@@ -9,19 +9,19 @@
           <ul style="list-style: none">
             <li class="py-2">
               <span class="me-3">
-                <img src="images/location.png" alt="" />
+                <img src="/images/location.png" alt="" />
               </span>
               <span>{{ contact.location }}</span>
             </li>
             <li class="py-2">
               <span class="me-3">
-                <img src="images/client.png" alt="" />
+                <img src="/images/client.png" alt="" />
               </span>
               <span>{{ contact.address }}</span>
             </li>
             <li class="py-2">
               <span class="me-3">
-                <img src="images/message.png" alt="" />
+                <img src="/images/message.png" alt="" />
               </span>
               <span>{{ contact.email }}</span>
             </li>
@@ -30,17 +30,17 @@
             </li>
             <li class="py-2">
               <span class="me-3">
-                <img src="images/calendar.png" alt=""/>
+                <img src="/images/calendar.png" alt=""/>
               </span>
               <span>{{ contact.date }}</span>
             </li>
             <li class="py-2">
-              <span class="me-3"> <img src="images/phone.png" alt="" /> </span>
+              <span class="me-3"> <img src="/images/phone.png" alt="" /> </span>
               <span>{{ contact.number }}</span>
             </li>
             <li class="py-2">
               <span class="me-3">
-                <img src="images/linkedin.png" alt="" />
+                <img src="/images/linkedin.png" alt="" />
               </span>
               <span class="pt-3">
                 <a :href="contact.linkedin" target="_blank">Follow us for updates</a>

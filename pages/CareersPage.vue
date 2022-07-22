@@ -126,7 +126,7 @@
                             <b-button class="accordion-button accordion-button-noborder d-flex justify-content-between"
                             block v-b-toggle.accordion-1 variant="transparent">
                                 <h6 class="mb-lg-0 text-left sas-font">{{ vacancy.title }}</h6>
-                                <b-img class="plus-icon" src="images/icons8-plus-50.png" width="30"></b-img>
+                                <b-img class="plus-icon" src="/images/icons8-plus-50.png" width="30"></b-img>
                             </b-button>
                         </b-card-header>
                         <b-collapse id="accordion-1" accordion="my-accordion" role="tabpanel">
