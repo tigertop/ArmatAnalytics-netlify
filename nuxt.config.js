@@ -83,13 +83,20 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['bootstrap-vue/nuxt', '@nuxt/content', '@nuxtjs/markdownit'],
+  modules: ['bootstrap-vue/nuxt', '@nuxt/content', '@nuxtjs/markdownit', '@nuxtjs/recaptcha'],
   markdownit: {
     runtime: true // Support `$md()`
   },
   bootstrapVue: {
     bootstrapCSS: false,
     icons: true,
+  },
+  publicRuntimeConfig: {
+    recaptcha: {
+      /* reCAPTCHA options */
+      version: 2,
+      siteKey: process.env.RECAPTCHA_SITE_KEY || "6Le9fBQhAAAAABkWc1xr8QIW3DoPUo-tjMua59Ri" // for example
+    }
   },
   /*
    ** Build configuration

@@ -19,7 +19,7 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-nav-item class="active" href="/">Home</b-nav-item>
-        <b-nav-item href="/CareersPage">Careers</b-nav-item>
+        <b-nav-item href="/careers">Careers</b-nav-item>
         <b-nav-item href="/#about">About us</b-nav-item>
         <b-nav-item href="#contact">Contact us</b-nav-item>
         <b-button class="main-btn" href="/CareersPage#root"
@@ -29,7 +29,7 @@
     </b-collapse>
   </b-navbar>
   </b-container>
-  <!-- End Navbar --> 
+  <!-- End Navbar -->
 </template>
 
 <script>
