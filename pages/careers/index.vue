@@ -103,7 +103,7 @@
                         <p class="description" v-html="$md.render(theRootSubjects[0].description)"></p>
                         </div>
                         <div class="text-center py-5" id="sub-button">
-                            <NuxtLink :to="`careers/The ROOT program`" class="btn btn-primary btn-lg text-capitalize">Submit application</NuxtLink>
+                            <NuxtLink :to="`/careers/The ROOT program`" class="btn btn-primary btn-lg text-capitalize">Submit application</NuxtLink>
                         </div>
                     </b-col>
                 </b-row>
@@ -133,7 +133,7 @@
                             <b-card-body class="accordion-body">
                                 <b-card-text v-html="$md.render(vacancy.description)"></b-card-text>
                                 <div class="text-lg-right my-3">
-                                    <NuxtLink :to="`careers/${vacancy.title}`" class="btn btn-primary btn-lg border-0 text-capitalize">Submit application</NuxtLink>
+                                    <NuxtLink :to="`/careers/${vacancy.title}`" class="btn btn-primary btn-lg border-0 text-capitalize">Submit application</NuxtLink>
                                 </div>
                             </b-card-body>
                         </b-collapse>

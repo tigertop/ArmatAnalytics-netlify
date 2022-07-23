@@ -97,7 +97,7 @@
               </b-col>
             </b-row>
             <b-row class="my-5">
-              <b-col>
+              <b-col class="text-center">
                 <p v-if="submitMessage">{{ submitMessage }}</p>
               </b-col>
             </b-row>
@@ -143,6 +143,7 @@ export default {
 
         // Throw an error if the response was not successful
         if (!response.ok) {
+          console.log(response)
           throw new Error('Response was not successful')
         }
 
