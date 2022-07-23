@@ -18,6 +18,12 @@
     <b-container fluid="sm" class="submit-container py-5">
       <b-card class="border-0 shadow-r" style="border-radius: 10px">
         <b-card-body>
+          <form :name="test"
+              method="POST"
+              enctype="multipart/form-data"
+              data-netlify="true">
+          <input type="hidden" name="form-name" :value="test" />
+          </form>
           <form :name="$route.params.vacancy"
                 method="POST"
                 enctype="multipart/form-data"
@@ -129,32 +135,31 @@ export default {
       }
     },
     async onSubmit(event) {
-      // try {
+      try {
         // Wait for the reCAPTCHA token
         await this.$recaptcha.getResponse()
-        event.target.submit()
         // Submit the form to Netlify
-      //   const response = await fetch('/', {
-      //     method: 'POST',
-      //     // headers: {
-      //     //   'Content-Type': 'application/x-www-form-urlencoded'
-      //     // },
-      //     body: new FormData(event.target)
-      //   })
+        const response = await fetch('/', {
+          method: 'POST',
+          // headers: {
+          //   'Content-Type': 'application/x-www-form-urlencoded'
+          // },
+          body: new FormData(event.target)
+        })
 
-      //   // Throw an error if the response was not successful
-      //   if (!response.ok) {
-      //     console.log(response)
-      //     throw new Error('Response was not successful')
-      //   }
+        // Throw an error if the response was not successful
+        if (!response.ok) {
+          console.log(response)
+          throw new Error('Response was not successful')
+        }
 
-      //   // Say thank you and reset reCAPTCHA
-      //   this.submitMessage = 'Your application was submitted successfully!'
-      //   await this.$recaptcha.reset()
-      // } catch {
-      //   // Error message if something goes wrong
-      //   this.submitMessage = 'Something went wrong, please try again.'
-      // }
+        // Say thank you and reset reCAPTCHA
+        this.submitMessage = 'Your application was submitted successfully!'
+        await this.$recaptcha.reset()
+      } catch {
+        // Error message if something goes wrong
+        this.submitMessage = 'Something went wrong, please try again.'
+      }
     }
   },
   async asyncData({ $content }) {
