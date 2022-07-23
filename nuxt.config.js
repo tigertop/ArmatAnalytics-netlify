@@ -95,7 +95,7 @@ export default {
     recaptcha: {
       /* reCAPTCHA options */
       version: 2,
-      siteKey: process.env.RECAPTCHA_SITE_KEY || "GLadiatorKEY" // for example
+      siteKey: process.env.RECAPTCHA_SITE_KEY || "6Le9fBQhAAAAABkWc1xr8QIW3DoPUo-tjMua59Ri" // for example
     }
   },
   /*
