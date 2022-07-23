@@ -18,12 +18,6 @@
     <b-container fluid="sm" class="submit-container py-5">
       <b-card class="border-0 shadow-r" style="border-radius: 10px">
         <b-card-body>
-          <form :name="test"
-              method="POST"
-              enctype="multipart/form-data"
-              data-netlify="true">
-          <input type="hidden" name="form-name" :value="test" />
-          </form>
           <form :name="$route.params.vacancy"
                 method="POST"
                 enctype="multipart/form-data"
