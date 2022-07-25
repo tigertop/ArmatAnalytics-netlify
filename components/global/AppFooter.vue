@@ -19,7 +19,7 @@
         <b-col md="4" lg="4" sm="12" class="text-center mt-2">
           <ul class="list-unstyled d-flex justify-content-between">
             <li><b-link to="/" exact>Home</b-link></li>
-            <li><b-link to="/CareersPage">Careers</b-link></li>
+            <li><b-link to="/careers">Careers</b-link></li>
             <li><b-link to="/#about">About us</b-link></li>
             <li><b-link to="#contact">Contact us</b-link></li>
           </ul>

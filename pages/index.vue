@@ -5,10 +5,10 @@
       <b-container class="py-6 py-md-5 mb text-white z-index-20">
         <b-row class="mt-3 py-4 px-2">
           <b-col lg="12" class="mt-5">
-            <div class="text-left">
-              <h1 class="title-h1 font-weight-bold py-md-5 mt-5 text-shadow">
+            <div class="text-lg-left text-center">
+              <h1 class="title-h1 font-weight-bold py-md-5 mt-5 text-shadow d-block">
                 See the change with Armat. <br />
-                Delivering Quality
+                <vue-typer :text='["Delivering Quality", "Armat Diligence", "Armat Innovation"]' initial-action='typing'></vue-typer>
               </h1>
             </div>
           </b-col>
@@ -27,7 +27,7 @@
         </b-col>
         <b-col lg="6" md="6" sm="12">
           <div class="text-lg-right">
-            <b-img :src="data.image" fluid alt="Responsive image" style="width: 85%"></b-img>
+            <b-img class="m-view-about" :src="data.image" fluid alt="Responsive image" ></b-img>
           </div>
         </b-col>
       </b-row>
@@ -38,7 +38,7 @@
       <b-row v-for="(data, index) in ourMission" :key="index" align-h="between pt-5">
         <b-col lg="7" order-lg="1" md="7" order-md="1" sm="12" order="2">
           <div class="text-left">
-            <b-img :src="data.image" fluid alt="Responsive image" style="width: 75%"></b-img>
+            <b-img class="m-view-mission" :src="data.image" fluid alt="Responsive image"></b-img>
           </div>
         </b-col>
         <b-col lg="5" order-lg="2" md="5" order-md="2" sm="12" order="1">
@@ -51,7 +51,7 @@
     </b-container>
     <!-- End Our mission-->
     <!-- Start Our Services -->
-    <section id="our-services" class="p-5">
+    <section id="our-services" class="p-lg-5">
       <b-container class="pt-5">
         <b-row v-for="(data, index) in ourServices" :key="index" class="pt-5 d-flex">
           <div
@@ -75,8 +75,8 @@
           <p class="description">We provide both full and partial support for Phase 1-4 study reporting.</p>
         </b-col>
       </b-row>
-      <b-row class="row-cols-2 row-cols-lg-3 g-5 justify-content-around align-self-stretch">
-        <b-col v-for="(report, index) in reporting" :key="index" class="text-center align-items-stretch mb-4">
+      <b-row class="g-5 justify-content-around align-self-stretch">
+        <b-col lg="4" md="6" sm="12" v-for="(report, index) in reporting" :key="index" class="text-center align-items-stretch mb-4">
           <div class="p-5 shadow-r radius-1 h-100">
             <div class="my-3">
               <img class="align-item-center" :src="report.icon" alt="" />
@@ -96,10 +96,10 @@
         </b-col>
       </b-row>
       <b-row class="justify-content-around d-flex justify-content-between">
-        <b-col v-for="(data, index) in dataManagement" :key="index" lg="4" md="6" class="text-center align-items-stretch">
-          <b-jumbotron class="dtmgmt rounded-hover bg-light m-5 p-5 h-75" :style="{'--hovercolor':data.color}">
+        <b-col col lg="4" md="6" sm="12" v-for="(data, index) in dataManagement" :key="index" class="text-center align-items-stretch">
+          <b-jumbotron class="dtmgmt rounded-hover bg-light m-lg-5 p-5 h-75" :style="{'--hovercolor':data.color}">
             <div class="icon-box align-items-center">
-              <div class="icon my-3">
+              <div class="icon my-lg-3 my-md-3">
                 <div class="icon-bg-circle" :style="{backgroundColor:data.color}">
                   <img class="icon-img-center" :src="data.icon" alt="" />
                 </div>
@@ -142,7 +142,7 @@
             <b-col  align-self="center" cols="12" class="text">
               <div>
                 <span class="pt-lg-5 lrn-description">{{ join.body.children[0].children[0].value }}</span>
-              <b-col class="pt-lg-5">
+              <b-col class="pt-5">
                 <b-button variant="primary" size="lg" type="button" class="btn border-0">Learn More</b-button>
               </b-col>
               </div>
@@ -194,6 +194,18 @@ export default {
 </script>
 
 <style>
+.vue-typer .custom.char.typed {
+  color: #fff;
+}
+.vue-typer .custom.char.selected {
+  color: #fff;
+  background-color: transparent;
+}
+.vue-typer .custom.caret {
+  width: 5px;
+  background-color: #00b5df;
+}
+
 .bg-cover {
   height: 81vh;
   background-image: url(/images/Desktop1.png);
@@ -234,7 +246,7 @@ export default {
 .report-h6 {
   font-family:'Poppins', sans serif;
   font-size: 1.125em;
-  font-weight: 500;
+  font-weight: 500!important;
 }
 
 #reporting .shadow-r {
@@ -298,4 +310,19 @@ export default {
   background-size: cover;
   height: 55vh;
 }
+
+@media only screen and (min-width: 800px) {
+  .m-view-about {
+    width: 85%;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+ .m-view-mission{
+    width: 75%;
+  }
+}
+
+
+
 </style>
