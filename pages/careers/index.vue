@@ -54,24 +54,24 @@
                     </b-col>
                 </b-row>
                 <b-row align-h="center" class="pb-5">
-                    <b-col cols lg="5" md="5" sm="12" class="text-lg-left">
+                    <b-col lg="5" order-lg="1" md="5" order-md="1" sm="12" order="1" class="text-lg-left">
                         <div class="pt-5">
-                            <p class="root-p" v-html="$md.render(theRootProgram[1].description)"></p>
+                            <p class="root-p" v-html="$md.render(theRootProgram[0].description)"></p>
                         </div>
                     </b-col>
-                    <b-col cols lg="5" md="5" sm="12" class="text-lg-right">
-                        <img class="img-fluid" :src=" theRootProgram[1].image" alt="">
+                    <b-col lg="5" order-lg="2" md="5" order-md="2" sm="12" order="2" class="text-lg-right">
+                        <img class="img-fluid" :src=" theRootProgram[0].image" alt="">
                     </b-col>
                 </b-row>
                 <b-row align-h="center" class="ml-lg-5 pt-5">
-                    <b-col cols lg="5" md="5" sm="12" class="text-lg-left">
+                    <b-col lg="5" order-lg="1" md="5" order-md="1" sm="12" order="2" class="text-lg-left">
                         <div class="m-lg-3">
-                           <img class="img-fluid me-lg-5" :src=" theRootProgram[0].image" alt="">
+                           <img class="img-fluid me-lg-5" :src=" theRootProgram[1].image" alt="">
                         </div>
                     </b-col>
-                    <b-col cols lg="5" md="5" sm="12" class="text-lg-left">
+                    <b-col lg="5" order-lg="2" md="5" order-md="2" sm="12" order="1" class="text-lg-left">
                         <div class="pt-lg-5 ml-lg-5">
-                            <p class="root-p" v-html="$md.render(theRootProgram[0].description)"></p>
+                            <p class="root-p" v-html="$md.render(theRootProgram[1].description)"></p>
                         </div>
                     </b-col>
                 </b-row>

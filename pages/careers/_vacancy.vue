@@ -91,12 +91,12 @@
               </b-col>
             </b-row>
             <recaptcha />
-            <b-row class="my-5">
+            <b-row class="mt-5">
               <b-col col lg="12" md="12" sm="12">
                 <b-button type="submit" class="w-100 apply-button" size="lg" variant="primary">Apply</b-button>
               </b-col>
             </b-row>
-            <b-row class="my-5">
+            <b-row class="mt-4">
               <b-col class="text-center">
                 <p v-if="submitMessage">{{ submitMessage }}</p>
               </b-col>

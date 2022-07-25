@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="site">
         <AppHeader />
         <Nuxt />
         <ContactUs />
@@ -37,13 +37,14 @@ export default {
     --justsky-color: #f5f8fb;
 }
 
-body, html {
-   margin: 0;
-   padding: 0;
+body,html {
+  overflow-x:hidden;
+  scroll-behavior: smooth;
 }
 
-body{
-   overflow-x: hidden;
+.site {
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .container{
