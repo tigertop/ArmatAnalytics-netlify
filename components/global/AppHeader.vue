@@ -1,45 +1,47 @@
 <template>
  <!-- Start Navbar -->
- <b-container>
-  <b-navbar
-    id="navbar"
-    class="bg-white "
-    toggleable="lg"
-    type="light"
-  >
-    <b-navbar-brand href="/">
-      <b-img
-        class="img mb-2"
-        src="~/static/images/Layer2.svg"
-        alt="logo"
-      ></b-img>
-    </b-navbar-brand>
-    <b-navbar-toggle class="navbar-toggler collapsed" target="nav-collapse">
-      <span class="toggler-icon top-bar"></span>
-      <span class="toggler-icon middle-bar"></span>
-      <span class="toggler-icon bottom-bar"></span>
-    </b-navbar-toggle>
-    <b-collapse id="nav-collapse" is-nav>
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="ml-auto">
-        <li class="nav-item">
-          <NuxtLink class="nav-link" to="/">Home</NuxtLink>
-        </li>
-        <li class="nav-item">
-          <NuxtLink class="nav-link" to="/careers">Careers</NuxtLink>
-        </li>
-        <li class="nav-item">
-          <NuxtLink class="nav-link" to="/#about">About us</NuxtLink>
-        </li>
-        <li class="nav-item">
-          <NuxtLink class="nav-link" to="#contact">Contact us</NuxtLink>
-        </li>
-        <b-button class="main-btn" href="/careers/#root">ROOT Program</b-button>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-  </b-container>
+ <div class="bg-white">
+  <b-container>
+    <b-navbar
+      id="navbar"
+      class="bg-white sticky"
+      toggleable="lg"
+      type="light"
+    >
+      <b-navbar-brand href="/">
+        <b-img
+          class="img mb-2"
+          src="~/static/images/Layer2.svg"
+          alt="logo"
+        ></b-img>
+      </b-navbar-brand>
+      <b-navbar-toggle class="navbar-toggler collapsed" target="nav-collapse">
+        <span class="toggler-icon top-bar"></span>
+        <span class="toggler-icon middle-bar"></span>
+        <span class="toggler-icon bottom-bar"></span>
+      </b-navbar-toggle>
+      <b-collapse id="nav-collapse" is-nav>
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <li class="nav-item">
+            <NuxtLink class="nav-link" to="/">Home</NuxtLink>
+          </li>
+          <li class="nav-item">
+            <NuxtLink class="nav-link" to="/careers">Careers</NuxtLink>
+          </li>
+          <li class="nav-item">
+            <NuxtLink class="nav-link" to="/#about">About us</NuxtLink>
+          </li>
+          <li class="nav-item">
+            <NuxtLink class="nav-link" to="#contact">Contact us</NuxtLink>
+          </li>
+          <b-button class="main-btn" href="/careers/#root">ROOT Program</b-button>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+    </b-container>
   <!-- End Navbar -->
+  </div>
 </template>
 
 <script>
@@ -49,6 +51,10 @@ export default {
 </script>
 
 <style>
+.sticky {
+  position: sticky!important;
+  top: 0px;
+}
 
 #navbar .nav-item {
   margin: 0 !important;
@@ -80,25 +86,30 @@ export default {
   font-weight: 700!important;
 }
 
-#navbar .nuxt-link-exact-active::after {
-  content: ''!important;
-  width: 8px!important;
-  height: 8px!important;
-  background: #72aff7!important;
-  display: block!important;
-  margin: auto!important;
-  border-radius: 50%!important;
+
+
+@media only screen and (min-width: 992px) {
+  #navbar ul li .nav-link:not(.nuxt-link-exact-active)::after {
+    content: ''!important;
+    width: 0%;
+    height: 2px!important;
+    background: #72aff7!important;
+    display: block!important;
+    margin: auto!important;
+    transition: 0.5s!important;
+  }
+    #navbar .nuxt-link-exact-active::after {
+    content: ''!important;
+    width: 8px!important;
+    height: 8px!important;
+    background: #72aff7!important;
+    display: block!important;
+    margin: auto!important;
+    border-radius: 50%!important;
+  }
 }
 
-#navbar ul li .nav-link:not(.nuxt-link-exact-active)::after {
-  content: ''!important;
-  width: 0%;
-  height: 2px!important;
-  background: #72aff7!important;
-  display: block!important;
-  margin: auto!important;
-  transition: 0.5s!important;
-}
+
 
 #navbar ul li .nav-link:not(.nuxt-link-exact-active):hover::after {
   width: 100%!important;

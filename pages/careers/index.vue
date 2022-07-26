@@ -56,26 +56,29 @@
                 <b-row align-h="center" class="pb-5">
                     <b-col lg="5" order-lg="1" md="5" order-md="1" sm="12" order="1" class="text-lg-left">
                         <div class="pt-5">
-                            <p class="root-p" v-html="$md.render(theRootProgram[0].description)"></p>
+                            <p class="root-p" v-html="$md.render(theRootProgram.filter(p => p.slug === 'mission')[0].description)"></p>
                         </div>
                     </b-col>
                     <b-col lg="5" order-lg="2" md="5" order-md="2" sm="12" order="2" class="text-lg-right">
-                        <img class="img-fluid" :src=" theRootProgram[0].image" alt="">
+                        <img class="img-fluid" :src=" theRootProgram.filter(p => p.slug === 'mission')[0].image" alt="">
                     </b-col>
                 </b-row>
                 <b-row align-h="center" class="ml-lg-5 pt-5">
                     <b-col lg="5" order-lg="1" md="5" order-md="1" sm="12" order="2" class="text-lg-left">
                         <div class="m-lg-3">
-                           <img class="img-fluid me-lg-5" :src=" theRootProgram[1].image" alt="">
+                           <img class="img-fluid me-lg-5" :src="theRootProgram.filter(p => p.slug === 'training')[0].image" alt="">
                         </div>
                     </b-col>
                     <b-col lg="5" order-lg="2" md="5" order-md="2" sm="12" order="1" class="text-lg-left">
                         <div class="pt-lg-5 ml-lg-5">
-                            <p class="root-p" v-html="$md.render(theRootProgram[1].description)"></p>
+                            <p class="root-p" v-html="$md.render(theRootProgram.filter(p => p.slug === 'training')[0].description)"></p>
                         </div>
                     </b-col>
                 </b-row>
-                <b-row v-if="theRootSubjects.length > 0" class="py-5">
+                <b-row v-if="theRootSubjects.length > 0" class="py-5 root-subjects">
+                    <b-col cols lg="12" md="12">
+                        <img class="img-fluid dashed-curved-line" src="/images/vector-1.png" />
+                    </b-col>
                     <b-col cols lg="2" md="2"></b-col>
                     <b-col cols lg="8" md="8" class="dashed-container pt-5">
                         <div class="text-center pb-1">
@@ -358,6 +361,17 @@ button {
     z-index: 10;
 }
 
+.root-subjects {
+    position: relative;
+}
+
+.dashed-curved-line{
+    position: absolute;
+    bottom: 6vh;
+    left: 7%;
+    display: none;
+}
+
 .dashed-container{
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='20' ry='20' stroke='rgba(0, 0, 0, 0.2)' stroke-width='3' stroke-dasharray='20%2c 20' stroke-dashoffset='100' stroke-linecap='square'/%3e%3c/svg%3e");
     border-radius: 1.250em;
@@ -385,5 +399,12 @@ ul.ul-font li {
     background-color: #81C3FD;
     border: none;
 }
+
+@media only screen and (min-width: 1366px) {
+ .dashed-curved-line {
+    display: block;
+  }
+}
+
 /*  root */
 </style>
