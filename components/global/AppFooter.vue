@@ -50,7 +50,7 @@ export default {
 }
 
 #footer a {
-  font-size: 16px;
+  font-size: 1em;
   opacity: 0.6;
   font-weight: 200;
   color: #ffffff !important;

@@ -2,7 +2,7 @@ import * as SITE_INFO from './content/site/info.json'
 import { COLOR_MODE_FALLBACK } from './utils/globals.js'
 
 export default {
-  ssr: true,
+  ssr: process.env.NODE_ENV === 'production',
   target: 'static',
   components: true,
   generate: {

@@ -143,7 +143,7 @@
               <div>
                 <span class="pt-lg-5 lrn-description">{{ join.body.children[0].children[0].value }}</span>
               <b-col class="pt-5">
-                <b-button variant="primary" size="lg" type="button" class="btn border-0">Learn More</b-button>
+                <a href="/careers" variant="primary" type="button" class="btn btn-lg btn-primary  border-0" role="button">Learn More</a>
               </b-col>
               </div>
             </b-col>

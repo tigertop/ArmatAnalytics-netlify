@@ -35,15 +35,17 @@
               <span>{{ contact.date }}</span>
             </li>
             <li class="py-2">
-              <span class="me-3"> <img src="/images/phone.png" alt="" /> </span>
+              <span class="me-3">
+                <img src="/images/phone.png" alt="" />
+              </span>
               <span>{{ contact.number }}</span>
             </li>
             <li class="py-2">
               <span class="me-3">
-                <img src="/images/linkedin.png" alt="" />
+                <img class="linkedin-icon" src="/images/linkedin.png" alt="" />
               </span>
-              <span class="pt-3">
-                <a :href="contact.linkedin" target="_blank">Follow us for updates</a>
+              <span>
+                <a class="linkedin" :href="contact.linkedin" target="_blank">Follow us for updates</a>
               </span>
             </li>
           </ul>
@@ -91,5 +93,18 @@ export default {
   font-size: 45px;
   font-weight: 600;
   color: #263e52;
+}
+
+.linkedin, .linkedin:hover {
+  color: #263e52;
+  text-decoration: none;
+}
+
+.linkedin:hover {
+  color: #4f6b81;
+}
+
+.linkedin-icon{
+  margin-bottom: .5rem;
 }
 </style>
