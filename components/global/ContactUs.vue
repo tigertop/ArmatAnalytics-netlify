@@ -53,16 +53,7 @@
     </b-col>
     <b-col md="5" lg="5" sm="12">
       <div id="map-container-google" class="z-depth-1-half map-container">
-        <iframe
-          class="container-fluid"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3046.829913145193!2d44.51835531531506!3d40.21284627593826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406aa2b5ae6b77cd%3A0x3e58c8b9fdd87f98!2zMjcgTmlrb2doYXlvcyBUaWdyYW55YW4gU3QsIFllcmV2YW4sINCQ0YDQvNC10L3QuNGP!5e0!3m2!1sru!2s!4v1653564474083!5m2!1sru!2s"
-          width="150"
-          height="340"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3046.9500483849088!2d44.52720531568784!3d40.210174076099264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406aa2cbf9b30759%3A0x64ece0a4c1151b7f!2sYeraz%20Business%20Center!5e0!3m2!1sen!2s!4v1676398198266!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </b-col>
   </b-row>
