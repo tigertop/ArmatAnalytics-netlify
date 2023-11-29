@@ -1,5 +1,5 @@
 ---
 title: Therapeutic Areas
-description: "We also support you in data management procedures. "
+description: Our experience includes
 image: /images/t-areas.svg
 ---
