@@ -1,5 +1,5 @@
 ---
 title: Therapeutic Areas
-description: Our experience includes
+description: "  "
 image: /images/t-areas.svg
 ---
