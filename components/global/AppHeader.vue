@@ -26,6 +26,12 @@
           <li class="nav-item">
             <NuxtLink class="nav-link" to="/">Home</NuxtLink>
           </li>
+          <b-nav-item-dropdown class="products" text="Products" >
+            <b-dropdown-item href="https://keycombine.armatanalytics.com">
+              <img src="~/static/images/keycombine.png" class="mr-1 mb-1" width="20" alt="">
+              KeyCombine
+            </b-dropdown-item>
+          </b-nav-item-dropdown>
           <li class="nav-item">
             <NuxtLink class="nav-link" to="/careers">Careers</NuxtLink>
           </li>
@@ -74,7 +80,7 @@ export default {
   display: inline-block !important;
 }
 
-#navbar .nav-item a {
+#navbar .nav-item a:not(.dropdown-item) {
   font-size: 18px!important;
   font-weight: 400!important;
   color: #25546d !important;
