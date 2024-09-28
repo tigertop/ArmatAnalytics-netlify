@@ -50,4 +50,8 @@ body,html {
 .container{
     max-width: 1440px;
 }
+
+.products .dropdown-toggle::after {
+  border: none !important;
+}
 </style>

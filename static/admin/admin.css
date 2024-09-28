@@ -2,7 +2,7 @@
   margin: 1rem;
 }
 
-.frame-content > div > div + div {
+.frame-content>div>div+div {
   margin-top: 0.5rem;
   border-top: 1px dashed #dfdfe3;
   padding-top: 0.5rem;
@@ -28,5 +28,5 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Inter, system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica Neue,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
